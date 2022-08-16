@@ -12,7 +12,7 @@ with open("version.txt", "r") as version_file:
 setup(
     name="iterables-decorator",
     version=version,
-    description="Command line utilities for information about now",
+    description="Decorator to convert a class into an iterable.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/mr-strawberry66/iterables-decorator",
