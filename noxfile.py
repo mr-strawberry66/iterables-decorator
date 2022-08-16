@@ -30,7 +30,9 @@ def lint(session):
 def test(session):
     """Run unit tests using Pytest Coverage."""
     session.install("pytest", "pytest-cov")
-    session.install("-r", "requirements.txt")
+    if os.path.isfile("requirements.txt"):
+        session.install("-r", "requirements.txt")
+
     session.run("pytest", "--cov")
 
 
