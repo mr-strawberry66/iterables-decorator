@@ -2,31 +2,30 @@
 from __future__ import annotations
 
 from typing import Any
-from typing_extensions import Self
 
 
-def __init(self: Self, *args) -> Self:
+def __init(self, *args) -> None:
     """Initialize the list."""
     self.args = args
 
 
-def __repr(self: Self) -> str:
+def __repr(self) -> str:
     """Return a string representation of the list."""
     return f"{self.__class__.__qualname__}{self.args}"
 
 
-def __iter(self: Self) -> Self:
+def __iter(self) -> None:
     """Return an iterator for the list."""
     self._index = 0
     return self
 
 
-def __getitem(self: Self, index: int) -> str:
+def __getitem(self, index: int) -> str:
     """Return the item at the given index."""
     return self.args[index]
 
 
-def __next(self: Self) -> Any:
+def __next(self) -> Any:
     """Return the next item in the list."""
     try:
         result = self.args[self._index]
@@ -38,12 +37,12 @@ def __next(self: Self) -> Any:
     return result
 
 
-def __len(self: Self) -> int:
+def __len(self) -> int:
     """Return the length of the list."""
     return len(self.args)
 
 
-def __append(self: Self, *args: Any) -> Self:
+def __append(self, *args: Any) -> None:
     """Append an item to the list."""
     self.args = tuple(self.args + args)
     return self
