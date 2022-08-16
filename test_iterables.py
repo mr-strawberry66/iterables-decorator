@@ -5,42 +5,42 @@ import iterables
 
 
 @iterables.iterable
-class Test:
+class Items:
     """Class for testing iterables."""
 
 
 def test_iterable():
     """Test iterable wrapper."""
-    assert hasattr(Test(), "__iter__")
-    assert hasattr(Test(), "__next__")
-    assert hasattr(Test(), "__getitem__")
-    assert hasattr(Test(), "__len__")
-    assert hasattr(Test(), "__repr__")
+    assert hasattr(Items(), "__iter__")
+    assert hasattr(Items(), "__next__")
+    assert hasattr(Items(), "__getitem__")
+    assert hasattr(Items(), "__len__")
+    assert hasattr(Items(), "__repr__")
 
 
 def test_iterable_repr():
     """Test iterable repr."""
-    assert repr(Test("a", "b")) == "Test('a', 'b')"
+    assert repr(Items("a", "b")) == "Items('a', 'b')"
 
 
 def test_iterable_iter():
     """Test iterable iter."""
-    assert list(Test("a", "b")) == ["a", "b"]
+    assert list(Items("a", "b")) == ["a", "b"]
 
 
 def test_iterable_getitem():
     """Test iterable getitem."""
-    assert Test("a", "b")[0] == "a"
-    assert Test("a", "b")[1] == "b"
+    assert Items("a", "b")[0] == "a"
+    assert Items("a", "b")[1] == "b"
 
 
 def test_iterable_append():
     """Test iterable append."""
-    test = Test("a", "b")
+    test = Items("a", "b")
     test.append("c")
-    assert str(test) == "Test('a', 'b', 'c')"
+    assert str(test) == "Items('a', 'b', 'c')"
 
 
 def test_iterable_len():
     """Test iterable len."""
-    assert len(Test("a", "b")) == 2
+    assert len(Items("a", "b")) == 2

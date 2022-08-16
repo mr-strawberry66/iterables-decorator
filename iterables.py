@@ -48,7 +48,7 @@ def __append(self, *args: Any) -> None:
     return self
 
 
-def iterable(cls: type) -> type:
+def iterable(cls) -> type:
     """
     # Iterable.
 
@@ -90,16 +90,12 @@ def iterable(cls: type) -> type:
     >>> Items("a", "b", "c")
     ```
     """
+    setattr(cls, "__init__", __init)
+    setattr(cls, "__repr__", __repr)
+    setattr(cls, "__iter__", __iter)
+    setattr(cls, "__next__", __next)
+    setattr(cls, "__getitem__", __getitem)
+    setattr(cls, "__len__", __len)
+    setattr(cls, "append", __append)
 
-    def wrap(*args):
-        setattr(cls, "__init__", __init)
-        setattr(cls, "__repr__", __repr)
-        setattr(cls, "__iter__", __iter)
-        setattr(cls, "__next__", __next)
-        setattr(cls, "__getitem__", __getitem)
-        setattr(cls, "__len__", __len)
-        setattr(cls, "append", __append)
-
-        return cls(*args)
-
-    return wrap
+    return cls

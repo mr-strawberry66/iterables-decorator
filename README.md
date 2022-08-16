@@ -3,7 +3,7 @@ Create iterable classes using a class decorator.
 
 Values added to an iterable class are sored in the class's `self.args` attribute as a `tuple` of whatever type you have provided.
 
-## Example
+## Examples
 ```python
 from iterables import iterable
 
@@ -21,4 +21,17 @@ for item in items:
 
 >>> "Hello"
 >>> "iterables!"
+```
+
+You can attach additional methods to an iterable as you would with a dataclass.
+```python
+from iterables import iterable
+
+@iterable
+class Items:
+    item: str
+
+    @classmethod
+    def from_list(data: list[str]):
+        return cls(*data)
 ```
